@@ -1,0 +1,66 @@
+# Copyright (C) 2013 Free Software Foundation, Inc.
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+# This test case is to test the performance of GDB when it is handling
+# the shared libraries of inferior are loaded and unloaded.
+load_lib perftest.exp
+
+if [skip_perf_tests] {
+    return 0
+}
+
+standard_testfile .c
+set executable $testfile
+set expfile $testfile.exp
+
+# make check-perf RUNTESTFLAGS='thread-step.exp THREAD_COUNT=50 STEP_COUNT=100'
+if ![info exists THREAD_COUNT] {
+    set THREAD_COUNT 50
+}
+
+if ![info exists STEP_COUNT] {
+    set STEP_COUNT 100
+}
+
+PerfTest::assemble {
+    compile {
+	set compile_flags {debug}
+	lappend compile_flags "additional_flags=-DTHREAD_COUNT=$THREAD_COUNT"
+	if { [gdb_compile_pthreads "$srcdir/$subdir/$srcfile" ${binfile} executable $compile_flags] == "" } {
+	    PerfTest::compiled
+	}
+    }
+} {
+   startup_gdb {
+	clean_restart $binfile
+	
+	if ![runto_main] {
+	    fail "Can't run to main"
+	    return -1
+	}
+
+	gdb_breakpoint [gdb_get_line_number "bp-marker-1"]
+	gdb_continue_to_breakpoint "bp-marker-1"
+	gdb_test "info threads" ".*" "info threads"
+	gdb_test "break factorial" ".*" "break factorial"
+	# Run so that a thread other then mail can hit the break
+	gdb_continue_to_breakpoint "factorial"
+	delete_breakpoints
+    }
+} {
+    run {
+	gdb_test "python SteppingInMultiThreadedApp\($STEP_COUNT\).run()" ".*" "run_test"
+    }
+}
