@@ -35,32 +35,30 @@ if ![info exists STEP_COUNT] {
 }
 
 PerfTest::assemble {
-    compile {
-	set compile_flags {debug}
-	lappend compile_flags "additional_flags=-DTHREAD_COUNT=$THREAD_COUNT"
-	if { [gdb_compile_pthreads "$srcdir/$subdir/$srcfile" ${binfile} executable $compile_flags] == "" } {
-	    PerfTest::compiled
-	}
-    }
-} {
-   startup_gdb {
-	clean_restart $binfile
-	
-	if ![runto_main] {
-	    fail "Can't run to main"
+    global srcdir subdir srcfile
+    set compile_flags {debug}
+    lappend compile_flags "additional_flags=-DTHREAD_COUNT=$THREAD_COUNT"
+    if { [gdb_compile_pthreads "$srcdir/$subdir/$srcfile" ${binfile} executable $compile_flags] != "" } {
 	    return -1
-	}
-
-	gdb_breakpoint [gdb_get_line_number "bp-marker-1"]
-	gdb_continue_to_breakpoint "bp-marker-1"
-	gdb_test "info threads" ".*" "info threads"
-	gdb_test "break factorial" ".*" "break factorial"
-	# Run so that a thread other then mail can hit the break
-	gdb_continue_to_breakpoint "factorial"
-	delete_breakpoints
     }
+    return 0
 } {
-    run {
-	gdb_test "python SteppingInMultiThreadedApp\($STEP_COUNT\).run()" ".*" "run_test"
+    global binfile
+
+    clean_restart $binfile
+	
+    if ![runto_main] {
+	fail "Can't run to main"
+	return -1
     }
+
+    gdb_breakpoint [gdb_get_line_number "bp-marker-1"]
+    gdb_continue_to_breakpoint "bp-marker-1"
+    gdb_test "info threads" ".*" "info threads"
+    gdb_test "break factorial" ".*" "break factorial"
+    # Run so that a thread other then mail can hit the break
+    gdb_continue_to_breakpoint "factorial"
+    delete_breakpoints
+} {
+    gdb_test "python SteppingInMultiThreadedApp\($STEP_COUNT\).run()" ".*" "run_test"
 }
