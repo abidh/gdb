@@ -4994,7 +4994,7 @@ gdb_caching_proc universal_compile_options {} {
     # Try an option for disabling colored diagnostics.  Some compilers
     # yield colored diagnostics by default (when run from a tty) unless
     # such an option is specified.
-    set opt "additional_flags=-fdiagnostics-color=never"
+    set opt ""
     set lines [target_compile $src $obj object [list "quiet" $opt]]
     if {[string match "" $lines]} {
 	# Seems to have worked; use the option.
