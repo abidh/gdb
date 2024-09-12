@@ -45,7 +45,7 @@ proc do_bp_tests {with_src_prefix_p with_nest_prefix_p} {
     }
 
     if { $with_nest_prefix_p } {
-	set nest_prefix "contains_keyword::"
+	set nest_prefix "_QQmain::"
     } else {
 	set nest_prefix ""
     }
@@ -100,7 +100,7 @@ proc do_bp_tests {with_src_prefix_p with_nest_prefix_p} {
 			 gdb_test "ptype ${nest_prefix}${function}" \
 			     "type = ${type}"
 			 gdb_test "print ${nest_prefix}${function}" \
-			     "{${type}} $hex <contains_keyword::${function}>"
+			     "{${type}} $hex <_QQmain::${function}>"
 		     }
 
 		     gdb_breakpoint "${src_prefix}${nest_prefix}${function}"

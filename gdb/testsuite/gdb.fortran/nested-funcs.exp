@@ -30,8 +30,8 @@ if {![fortran_runto_main]} {
 }
 
 # Test if we can set a breakpoint in a nested function
-gdb_breakpoint "testnestedfuncs::sub_nested_outer"
-gdb_continue_to_breakpoint "testnestedfuncs::sub_nested_outer" \
+gdb_breakpoint "_QQmain::sub_nested_outer"
+gdb_continue_to_breakpoint "_QQmain::sub_nested_outer" \
     ".*local_int = 19"
 
 # Test if we can access local and
@@ -48,8 +48,8 @@ gdb_test "up"
 gdb_test "print index" "= 42" "print index at BP1, one frame up"
 
 # Test if we can set a breakpoint in a nested function
-gdb_breakpoint "testnestedfuncs::sub_nested_inner"
-gdb_continue_to_breakpoint "testnestedfuncs::sub_nested_inner" \
+gdb_breakpoint "_QQmain::sub_nested_inner"
+gdb_continue_to_breakpoint "_QQmain::sub_nested_inner" \
     ".*local_int = 17"
 
 # Test if we can access local and

@@ -187,9 +187,10 @@ proc fortran_character1 {} {
 proc fortran_main {} {
     if {[test_compiler_info {gfortran-*} f90]
 	|| [test_compiler_info {ifort-*} f90]
-	|| [test_compiler_info {ifx-*} f90]
-	|| [test_compiler_info {flang-llvm-*} f90]} {
-	return "_QQmain"
+	|| [test_compiler_info {ifx-*} f90]} {
+      return "MAIN__"
+    }  elseif {[test_compiler_info {flang-llvm-*} f90]} {
+	  return "_QQmain"
     } elseif {[test_compiler_info {flang-classic-*} f90]
 	      || [test_compiler_info {nvfortran-*} f90]} {
 	return "MAIN_"

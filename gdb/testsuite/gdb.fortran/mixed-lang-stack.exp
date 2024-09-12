@@ -74,7 +74,7 @@ proc run_tests { lang } {
 		 "#6\\s+$hex in mixed_func_1c \\(\[^\r\n\]+\\) at \[^\r\n\]+" \
 		 "#7\\s+$hex in mixed_func_1b \\($1b_args\\) at \[^\r\n\]+" \
 		 "#8\\s+$hex in mixed_func_1a \\(\\) at \[^\r\n\]+" \
-		 "#9\\s+$hex in mixed_stack_main \\(\\) at \[^\r\n\]+" ]
+		 "#9\\s+$hex in _QQmain \\(\\) at \[^\r\n\]+" ]
 	set main_args "argc=1, argv=${hex}( \[^\r\n\]+)?"
 	set bt_stack_kfail \
 	    [multi_line \
