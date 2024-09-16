@@ -27,17 +27,17 @@ save_vars { GDBFLAGS } {
     }
 }
 
-gdb_test "info main" "simple" "info main prior to start"
+gdb_test "info main" "_QQmain" "info main prior to start"
 
 if ![fortran_runto_main] {
     untested "could not run to main"
     return -1
 }
 
-gdb_test "info main" "simple" "info main post start"
+gdb_test "info main" "_QQmain" "info main post start"
 
 save_vars { GDBFLAGS } {
     set GDBFLAGS "$GDBFLAGS -readnow"
     clean_restart $testfile
 }
-gdb_test "info main" "simple" "info main with readnow"
+gdb_test "info main" "_QQmain" "info main with readnow"

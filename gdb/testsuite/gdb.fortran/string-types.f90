@@ -15,17 +15,17 @@
 
 subroutine fixed_size_string_v1(s)
   character*3 s
-  print *, ""	! First breakpoint.
+  print *, s	! First breakpoint.
 end subroutine fixed_size_string_v1
 
 subroutine fixed_size_string_v2(s)
   character(3) s
-  print *, ""	! Second breakpoint.
+  print *, s	! Second breakpoint.
 end subroutine fixed_size_string_v2
 
 subroutine variable_size_string(s)
   character*(*) s
-  print *, ""	! Third breakpoint.
+  print *, s	! Third breakpoint.
 end subroutine variable_size_string
 
 program test
