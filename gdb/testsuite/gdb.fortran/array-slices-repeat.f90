@@ -28,6 +28,13 @@ subroutine show (array_1d, array_1d9, array_2d, array_2d9, array_3d, array_3d9)
   print *, array_2d9
   print *, array_3d
   print *, array_3d9
+  ! Added write to avoid these variables getting optimized.
+  array_1d(-2) = 2
+  array_2d(-2, -2) = 2
+  array_3d(-2, -2, -2) = 2
+  array_1d9(-2) = 2
+  array_2d9(-2, -2) = 2
+  array_3d9(-2, -2, -2) = 2
 end subroutine show
 
 !
