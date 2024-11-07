@@ -25,6 +25,7 @@ contains
 
   subroutine test_proc (this)
     class(test_type), intent (inout) :: this
+    type(test_type) :: t2
     allocate (this%b (3, 2))
     call fill_array_2d (this%b)
     print *, ""		! Break Here
