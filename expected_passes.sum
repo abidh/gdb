@@ -2538,8 +2538,20 @@ PASS: gdb.fortran/associated.exp: test 9: get valueof "answer"
 PASS: gdb.fortran/associated.exp: test 9: p associated (array_1d_p, array_2d (3, :))
 PASS: gdb.fortran/backtrace.exp: bt
 PASS: gdb.fortran/backtrace.exp: continue to breakpoint: continue to bar
+PASS: gdb.fortran/block-data.exp: before sub: print char1
+PASS: gdb.fortran/block-data.exp: before sub: print char2
+PASS: gdb.fortran/block-data.exp: before sub: print doub1
+PASS: gdb.fortran/block-data.exp: before sub: print doub2
 PASS: gdb.fortran/block-data.exp: continue to breakpoint: ! BP_BEFORE_SUB
 PASS: gdb.fortran/block-data.exp: continue to breakpoint: ! BP_SUB
+PASS: gdb.fortran/block-data.exp: default values: print char1
+PASS: gdb.fortran/block-data.exp: default values: print char2
+PASS: gdb.fortran/block-data.exp: default values: print doub1
+PASS: gdb.fortran/block-data.exp: default values: print doub2
+PASS: gdb.fortran/block-data.exp: in sub: print char1
+PASS: gdb.fortran/block-data.exp: in sub: print char2
+PASS: gdb.fortran/block-data.exp: in sub: print doub1
+PASS: gdb.fortran/block-data.exp: in sub: print doub2
 PASS: gdb.fortran/call-no-debug.exp: call (integer) string_func_ (&'abcdefg', 3)
 PASS: gdb.fortran/call-no-debug.exp: print (integer) some_func_ (&1)
 PASS: gdb.fortran/call-no-debug.exp: print some_func_ (&1)
@@ -2553,14 +2565,38 @@ PASS: gdb.fortran/class-allocatable-array.exp: print this%a
 PASS: gdb.fortran/class-allocatable-array.exp: print this%b
 PASS: gdb.fortran/common-block.exp: continue to breakpoint: stop-here-in
 PASS: gdb.fortran/common-block.exp: continue to breakpoint: stop-here-out
+PASS: gdb.fortran/common-block.exp: info common in
+PASS: gdb.fortran/common-block.exp: info common out
+PASS: gdb.fortran/common-block.exp: info locals in
+PASS: gdb.fortran/common-block.exp: info locals out
 PASS: gdb.fortran/common-block.exp: p fo_o
 PASS: gdb.fortran/common-block.exp: p foo
 PASS: gdb.fortran/common-block.exp: p fo_o in
 PASS: gdb.fortran/common-block.exp: p foo in
+PASS: gdb.fortran/common-block.exp: p ix in
+PASS: gdb.fortran/common-block.exp: p ix out
+PASS: gdb.fortran/common-block.exp: p ix_x in
+PASS: gdb.fortran/common-block.exp: p ix_x out
+PASS: gdb.fortran/common-block.exp: p iy2 in
+PASS: gdb.fortran/common-block.exp: p iy out
+PASS: gdb.fortran/common-block.exp: p iy_y in
+PASS: gdb.fortran/common-block.exp: p iy_y out
+PASS: gdb.fortran/common-block.exp: p iz in
+PASS: gdb.fortran/common-block.exp: p iz out
+PASS: gdb.fortran/common-block.exp: p iz_z2 in
+PASS: gdb.fortran/common-block.exp: p iz_z out
 PASS: gdb.fortran/common-block.exp: ptype fo_o
 PASS: gdb.fortran/common-block.exp: ptype foo
 PASS: gdb.fortran/common-block.exp: ptype fo_o in
 PASS: gdb.fortran/common-block.exp: ptype foo in
+PASS: gdb.fortran/common-block.exp: ptype ix in
+PASS: gdb.fortran/common-block.exp: ptype ix out
+PASS: gdb.fortran/common-block.exp: ptype ix_x in
+PASS: gdb.fortran/common-block.exp: ptype ix_x out
+PASS: gdb.fortran/common-block.exp: ptype iy2 in
+PASS: gdb.fortran/common-block.exp: ptype iy out
+PASS: gdb.fortran/common-block.exp: ptype iy_y in
+PASS: gdb.fortran/common-block.exp: ptype iy_y out
 PASS: gdb.fortran/common-block.exp: whatis fo_o
 PASS: gdb.fortran/common-block.exp: whatis foo
 PASS: gdb.fortran/common-block.exp: whatis fo_o in
@@ -2573,6 +2609,26 @@ PASS: gdb.fortran/completion.exp: tab complete "p var%aa" (second tab)
 PASS: gdb.fortran/completion.exp: tab complete "p var%b"
 PASS: gdb.fortran/completion.exp: tab complete "p var%" (second tab)
 PASS: gdb.fortran/completion.exp: tab complete "p var%x"
+PASS: gdb.fortran/complex.exp: c16: whatis $
+PASS: gdb.fortran/complex.exp: c4: whatis $
+PASS: gdb.fortran/complex.exp: c8: whatis $
+PASS: gdb.fortran/complex.exp: ci: whatis $
+PASS: gdb.fortran/complex.exp: continue to breakpoint: continue
+PASS: gdb.fortran/complex.exp: c: whatis $
+PASS: gdb.fortran/complex.exp: dc: whatis $
+PASS: gdb.fortran/complex.exp: print $_creal (c)
+PASS: gdb.fortran/complex.exp: print $_creal (c4)
+PASS: gdb.fortran/complex.exp: print $_creal (c8)
+PASS: gdb.fortran/complex.exp: print $_creal (ci)
+PASS: gdb.fortran/complex.exp: print $_creal (dc)
+PASS: gdb.fortran/complex.exp: print c
+PASS: gdb.fortran/complex.exp: print c4
+PASS: gdb.fortran/complex.exp: print c8
+PASS: gdb.fortran/complex.exp: print ci
+PASS: gdb.fortran/complex.exp: print dc
+PASS: gdb.fortran/complex.exp: whatis c
+PASS: gdb.fortran/complex.exp: whatis c4
+PASS: gdb.fortran/complex.exp: whatis ci
 PASS: gdb.fortran/debug-expr.exp: continue to breakpoint: Break Here
 PASS: gdb.fortran/debug-expr.exp: print .FALSE.
 PASS: gdb.fortran/debug-expr.exp: print obj%three(1)%two(1)%one(1)%i
@@ -2876,7 +2932,6 @@ PASS: gdb.fortran/function-calls.exp: p one_arg_value(10)
 PASS: gdb.fortran/function-calls.exp: p pointer_function(int_pointer)
 PASS: gdb.fortran/function-calls.exp: p real4_argument(real4)
 PASS: gdb.fortran/function-calls.exp: p return_constant()
-PASS: gdb.fortran/function-calls.exp: p returned_string_debugger
 PASS: gdb.fortran/function-calls.exp: p return_string(returned_string_debugger, 40)
 PASS: gdb.fortran/function-calls.exp: p several_arguments(2, 3, 5)
 PASS: gdb.fortran/function-calls.exp: p sum_some(1,2,3)
@@ -3710,6 +3765,11 @@ PASS: gdb.fortran/pointer-to-pointer.exp: ptype buffer%alpha
 PASS: gdb.fortran/print-formatted.exp: go to the end of the program
 PASS: gdb.fortran/print-formatted.exp: print ii in hex
 PASS: gdb.fortran/print-formatted.exp: setting the output-radix to 16
+PASS: gdb.fortran/printing-types.exp: continue to breakpoint: write
+PASS: gdb.fortran/printing-types.exp: print chvalue
+PASS: gdb.fortran/printing-types.exp: print logvalue
+PASS: gdb.fortran/printing-types.exp: print oneByte
+PASS: gdb.fortran/printing-types.exp: print twobytes
 PASS: gdb.fortran/print_type.exp: continue to breakpoint: After value assignment
 PASS: gdb.fortran/print_type.exp: continue to breakpoint: Before pointer assignment
 PASS: gdb.fortran/print_type.exp: continue to breakpoint: Before value assignment

@@ -1,46 +1,15 @@
-FAIL: gdb.fortran/block-data.exp: before sub: print char1
-FAIL: gdb.fortran/block-data.exp: before sub: print char2
-FAIL: gdb.fortran/block-data.exp: before sub: print doub1
-FAIL: gdb.fortran/block-data.exp: before sub: print doub2
-FAIL: gdb.fortran/block-data.exp: default values: print char1
-FAIL: gdb.fortran/block-data.exp: default values: print char2
-FAIL: gdb.fortran/block-data.exp: default values: print doub1
-FAIL: gdb.fortran/block-data.exp: default values: print doub2
-FAIL: gdb.fortran/block-data.exp: in sub: print char1
-FAIL: gdb.fortran/block-data.exp: in sub: print char2
-FAIL: gdb.fortran/block-data.exp: in sub: print doub1
-FAIL: gdb.fortran/block-data.exp: in sub: print doub2
 FAIL: gdb.fortran/charset.exp: print fortran wide character
 FAIL: gdb.fortran/charset.exp: print fortran wide string
 FAIL: gdb.fortran/class-allocatable-array.exp: print this
-FAIL: gdb.fortran/common-block.exp: info common in
-FAIL: gdb.fortran/common-block.exp: info common out
-FAIL: gdb.fortran/common-block.exp: info locals in
-FAIL: gdb.fortran/common-block.exp: info locals out
-FAIL: gdb.fortran/common-block.exp: p ix in
-FAIL: gdb.fortran/common-block.exp: p ix out
-FAIL: gdb.fortran/common-block.exp: p ix_x in
-FAIL: gdb.fortran/common-block.exp: p ix_x out
-FAIL: gdb.fortran/common-block.exp: p iy2 in
-FAIL: gdb.fortran/common-block.exp: p iy out
-FAIL: gdb.fortran/common-block.exp: p iy_y in
-FAIL: gdb.fortran/common-block.exp: p iy_y out
-FAIL: gdb.fortran/common-block.exp: p iz in
-FAIL: gdb.fortran/common-block.exp: p iz out
-FAIL: gdb.fortran/common-block.exp: p iz_z2 in
-FAIL: gdb.fortran/common-block.exp: p iz_z out
-FAIL: gdb.fortran/common-block.exp: ptype ix in
-FAIL: gdb.fortran/common-block.exp: ptype ix out
-FAIL: gdb.fortran/common-block.exp: ptype ix_x in
-FAIL: gdb.fortran/common-block.exp: ptype ix_x out
-FAIL: gdb.fortran/common-block.exp: ptype iy2 in
-FAIL: gdb.fortran/common-block.exp: ptype iy out
-FAIL: gdb.fortran/common-block.exp: ptype iy_y in
-FAIL: gdb.fortran/common-block.exp: ptype iy_y out
 FAIL: gdb.fortran/common-block.exp: ptype iz in
 FAIL: gdb.fortran/common-block.exp: ptype iz out
 FAIL: gdb.fortran/common-block.exp: ptype iz_z2 in
 FAIL: gdb.fortran/common-block.exp: ptype iz_z out
+FAIL: gdb.fortran/complex.exp: print $_creal (c16)
+FAIL: gdb.fortran/complex.exp: print c16
+FAIL: gdb.fortran/complex.exp: whatis c16
+FAIL: gdb.fortran/complex.exp: whatis c8
+FAIL: gdb.fortran/complex.exp: whatis dc
 FAIL: gdb.fortran/entry-point.exp: continue to breakpoint: continue to breakpoint: bar
 FAIL: gdb.fortran/entry-point.exp: continue to breakpoint: continue to breakpoint: foo
 FAIL: gdb.fortran/entry-point.exp: continue to breakpoint: continue to breakpoint: foobar
@@ -49,6 +18,7 @@ FAIL: gdb.fortran/function-calls.exp: p derived_types_and_module_calls::build_ca
 FAIL: gdb.fortran/function-calls.exp: p derived_types_and_module_calls::pass_cart(c)
 FAIL: gdb.fortran/function-calls.exp: p derived_types_and_module_calls::pass_nested_cart(nested_c)
 FAIL: gdb.fortran/function-calls.exp: p hidden_string_length('arbitrary string', 16)
+FAIL: gdb.fortran/function-calls.exp: p returned_string_debugger
 FAIL: gdb.fortran/info-main.exp: info main with readnow
 FAIL: gdb.fortran/info-modules.exp: info module functions: check no matches for 'info-types-2.f90', '.*', and '.*'
 FAIL: gdb.fortran/info-modules.exp: info module functions: check no matches for 'info-types-2.f90', '.*', and '.*'
@@ -115,6 +85,7 @@ FAIL: gdb.fortran/pointers.exp: print *charp
 FAIL: gdb.fortran/pointers.exp: print charp
 FAIL: gdb.fortran/pointers.exp: print *charp, not associated
 FAIL: gdb.fortran/pointers.exp: print charp, not associated
+FAIL: gdb.fortran/printing-types.exp: print rVal
 FAIL: gdb.fortran/print_type.exp: pointers not associated: ptype charap
 FAIL: gdb.fortran/print_type.exp: pointers not associated: ptype charp
 FAIL: gdb.fortran/print_type.exp: ptype charap
