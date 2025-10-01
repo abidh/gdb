@@ -49,7 +49,8 @@ proc fortran_int4 {} {
 proc fortran_int8 {} {
     if {[test_compiler_info {gfortran-4-[012]-*} f90]} {
 	return "int8"
-    } elseif {[test_compiler_info {gfortran-*} f90]} {
+    } elseif {[test_compiler_info {gfortran-*} f90]
+	  || [test_compiler_info {flang-llvm-*} f90]} {
 	return "integer\\(kind=8\\)"
     } elseif {[test_compiler_info {flang-*} f90]
 	      || [test_compiler_info {nvfortran-*} f90]} {
@@ -83,9 +84,10 @@ proc fortran_real4 {} {
 proc fortran_real8 {} {
     if {[test_compiler_info {gfortran-4-[012]-*} f90]} {
 	return "real8"
-    } elseif {[test_compiler_info {gfortran-*} f90]} {
+    } elseif {[test_compiler_info {gfortran-*} f90]
+	  || [test_compiler_info {flang-llvm-*} f90]} {
 	return "real\\(kind=8\\)"
-    } elseif {[test_compiler_info {flang-*} f90]
+    } elseif {[test_compiler_info {flang-classic-*} f90]
 	      || [test_compiler_info {nvfortran-*} f90]} {
 	return "double precision"
     } elseif {[test_compiler_info {ifort-*} f90]} {
@@ -117,9 +119,10 @@ proc fortran_complex4 {} {
 proc fortran_complex8 {} {
     if {[test_compiler_info {gfortran-4-[012]-*} f90]} {
 	return "complex8"
-    } elseif {[test_compiler_info {gfortran-*} f90]} {
+    } elseif {[test_compiler_info {gfortran-*} f90]
+	   || [test_compiler_info {flang-llvm-*} f90]} {
 	return "complex\\(kind=8\\)"
-    } elseif {[test_compiler_info {flang-*} f90]
+    } elseif {[test_compiler_info {flang-classic-*} f90]
 	      || [test_compiler_info {nvfortran-*} f90]} {
 	return "double complex"
     } elseif {[test_compiler_info {ifort-*} f90]} {
@@ -134,9 +137,10 @@ proc fortran_complex8 {} {
 proc fortran_complex16 {} {
     if {[test_compiler_info {gfortran-4-[012]-*} f90]} {
 	return "complex16"
-    } elseif {[test_compiler_info {gfortran-*} f90]} {
+    } elseif {[test_compiler_info {gfortran-*} f90]
+	  || [test_compiler_info {flang-llvm-*} f90]} {
 	return "complex\\(kind=16\\)"
-    } elseif {[test_compiler_info {flang-*} f90]} {
+    } elseif {[test_compiler_info {flang-classic-*} f90]} {
 	return "quad complex"
     } elseif {[test_compiler_info {ifort-*} f90]} {
 	return "COMPLEX\\(16\\)"
@@ -187,9 +191,10 @@ proc fortran_character1 {} {
 proc fortran_main {} {
     if {[test_compiler_info {gfortran-*} f90]
 	|| [test_compiler_info {ifort-*} f90]
-	|| [test_compiler_info {ifx-*} f90]
-	|| [test_compiler_info {flang-llvm-*} f90]} {
-	return "MAIN__"
+	|| [test_compiler_info {ifx-*} f90]} {
+      return "MAIN__"
+    }  elseif {[test_compiler_info {flang-llvm-*} f90]} {
+	  return "_QQmain"
     } elseif {[test_compiler_info {flang-classic-*} f90]
 	      || [test_compiler_info {nvfortran-*} f90]} {
 	return "MAIN_"
