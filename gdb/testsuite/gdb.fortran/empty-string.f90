@@ -25,6 +25,7 @@ contains
   integer(kind=4) function string_length(string)
     character*(*) :: string
     string_length = len(string)		! Break here.
+    print *, string
   end function string_length
 
 end program empty_string

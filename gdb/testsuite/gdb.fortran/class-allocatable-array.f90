@@ -27,7 +27,7 @@ contains
     class(test_type), intent (inout) :: this
     allocate (this%b (3, 2))
     call fill_array_2d (this%b)
-    print *, ""		! Break Here
+    print *, this%a		! Break Here
   contains
     ! Helper subroutine to fill 2-dimensional array with unique
     ! values.
