@@ -1,0 +1,109 @@
+FAIL: gdb.fortran/assumedrank.exp: test 1: answer array contains the expected contents
+FAIL: gdb.fortran/assumedrank.exp: test 2: answer array contains the expected contents
+FAIL: gdb.fortran/assumedrank.exp: test 2: p rank(array2)
+FAIL: gdb.fortran/assumedrank.exp: test 3: answer array contains the expected contents
+FAIL: gdb.fortran/assumedrank.exp: test 3: p rank(array3)
+FAIL: gdb.fortran/assumedrank.exp: test 4: answer array contains the expected contents
+FAIL: gdb.fortran/assumedrank.exp: test 4: p rank(array4)
+FAIL: gdb.fortran/backtrace.exp: bt
+FAIL: gdb.fortran/charset.exp: print fortran wide character
+FAIL: gdb.fortran/charset.exp: print fortran wide string
+FAIL: gdb.fortran/class-allocatable-array.exp: print this
+FAIL: gdb.fortran/class-allocatable-array.exp: print this%a
+FAIL: gdb.fortran/class-allocatable-array.exp: print this%b
+FAIL: gdb.fortran/entry-point.exp: continue to breakpoint: continue to breakpoint: bar
+FAIL: gdb.fortran/entry-point.exp: continue to breakpoint: continue to breakpoint: foo
+FAIL: gdb.fortran/entry-point.exp: continue to breakpoint: continue to breakpoint: foobar
+FAIL: gdb.fortran/function-calls.exp: p derived_types_and_module_calls::build_cart(7,8)
+FAIL: gdb.fortran/function-calls.exp: p derived_types_and_module_calls::pass_cart(c)
+FAIL: gdb.fortran/function-calls.exp: p derived_types_and_module_calls::pass_nested_cart(nested_c)
+FAIL: gdb.fortran/function-calls.exp: p hidden_string_length('arbitrary string', 16)
+FAIL: gdb.fortran/function-calls.exp: p returned_string_debugger
+FAIL: gdb.fortran/info-main.exp: info main post start
+FAIL: gdb.fortran/info-main.exp: info main prior to start
+FAIL: gdb.fortran/info-main.exp: info main with readnow
+FAIL: gdb.fortran/info-modules.exp: info module functions: check no matches for 'info-types-2.f90', '.*', and '.*'
+FAIL: gdb.fortran/info-modules.exp: info module functions: check no matches for 'info-types-2.f90', '.*', and '.*'
+FAIL: gdb.fortran/info-modules.exp: info module functions -t integer: check no matches for 'info-types-2.f90', '.*', and '.*'
+FAIL: gdb.fortran/info-modules.exp: info modules 1: check for entry 'info-types.f90', '16', 'mod1'
+FAIL: gdb.fortran/info-modules.exp: info modules 1: check no matches for 'info-types.f90', '.*', and '.*'
+FAIL: gdb.fortran/info-modules.exp: info modules 2: check for entry 'info-types-2.f90', '18', 'mod2'
+FAIL: gdb.fortran/info-modules.exp: info modules 2: check no matches for 'info-types-2.f90', '.*', and '.*'
+FAIL: gdb.fortran/info-modules.exp: info modules 2: check no matches for 'info-types.f90', '.*', and '.*'
+FAIL: gdb.fortran/info-modules.exp: info modules: check for entry 'info-types-2.f90', '18', 'mod2'
+FAIL: gdb.fortran/info-modules.exp: info modules: check for entry 'info-types.f90', '16', 'mod1'
+FAIL: gdb.fortran/info-modules.exp: info modules: check no matches for 'info-types-2.f90', '.*', and '.*'
+FAIL: gdb.fortran/info-modules.exp: info modules: check no matches for 'info-types.f90', '.*', and '.*'
+FAIL: gdb.fortran/info-modules.exp: info modules: check no matches for 'info-types.f90', '.*', and '.*'
+FAIL: gdb.fortran/info-modules.exp: info modules mod: check for entry 'info-types-2.f90', '18', 'mod2'
+FAIL: gdb.fortran/info-modules.exp: info modules mod: check for entry 'info-types.f90', '16', 'mod1'
+FAIL: gdb.fortran/info-modules.exp: info modules mod: check no matches for 'info-types-2.f90', '.*', and '.*'
+FAIL: gdb.fortran/info-modules.exp: info modules mod: check no matches for 'info-types.f90', '.*', and '.*'
+FAIL: gdb.fortran/info-modules.exp: info modules mod: check no matches for 'info-types.f90', '.*', and '.*'
+FAIL: gdb.fortran/info-modules.exp: info module variables _1: check for entry 'info-types-2.f90', '19', 'integer mod2::mod2_var_1;'
+FAIL: gdb.fortran/info-modules.exp: info module variables _1: check for entry 'info-types.f90', '21', 'real mod1::mod1_var_1;'
+FAIL: gdb.fortran/info-modules.exp: info module variables _1: check header
+FAIL: gdb.fortran/info-modules.exp: info module variables _1 (timeout)
+FAIL: gdb.fortran/info-modules.exp: info module variables: check for entry 'info-types-2.f90', '20', 'real mod2::mod2_var_2;'
+FAIL: gdb.fortran/info-modules.exp: info module variables: check for entry 'info-types.f90', '22', 'integer mod1::mod1_var_2;'
+FAIL: gdb.fortran/info-modules.exp: info module variables: check no matches for 'info-types-2.f90', '.*', and '.*'
+FAIL: gdb.fortran/info-modules.exp: info module variables: check no matches for 'info-types.f90', '.*', and '.*'
+FAIL: gdb.fortran/info-modules.exp: info module variables: check no matches for 'info-types.f90', '.*', and '.*'
+FAIL: gdb.fortran/info-modules.exp: info module variables -m mod2: check for entry 'info-types-2.f90', '20', 'real mod2::mod2_var_2;'
+FAIL: gdb.fortran/info-modules.exp: info module variables -m mod2: check no matches for 'info-types-2.f90', '.*', and '.*'
+FAIL: gdb.fortran/info-modules.exp: info module variables -m mod2: check no matches for 'info-types.f90', '.*', and '.*'
+FAIL: gdb.fortran/info-modules.exp: info module variables -m mod2: check no matches for 'info-types.f90', '.*', and '.*'
+FAIL: gdb.fortran/info-modules.exp: info module variables -m mod2 -t real: check for entry 'info-types-2.f90', '20', 'real mod2::mod2_var_2;'
+FAIL: gdb.fortran/info-modules.exp: info module variables -m mod2 -t real (timeout)
+FAIL: gdb.fortran/info-modules.exp: info module variables -t real: check for entry 'info-types-2.f90', '20', 'real mod2::mod2_var_2;'
+FAIL: gdb.fortran/info-types.exp: info types: check for entry 'info-types.f90', '[0-9]+', 'Type m1t1'
+FAIL: gdb.fortran/library-module.exp: print var_k
+FAIL: gdb.fortran/mixed-lang-stack.exp: lang=auto: bt -frame-arguments all
+FAIL: gdb.fortran/mixed-lang-stack.exp: lang=auto: info args in frame #7
+FAIL: gdb.fortran/mixed-lang-stack.exp: lang=auto: interpreter-exec mi '-stack-list-arguments --no-frame-filters --all-values 7 7'
+FAIL: gdb.fortran/mixed-lang-stack.exp: lang=c++: bt -frame-arguments all
+FAIL: gdb.fortran/mixed-lang-stack.exp: lang=c: bt -frame-arguments all
+FAIL: gdb.fortran/mixed-lang-stack.exp: lang=c++: info args in frame #7
+FAIL: gdb.fortran/mixed-lang-stack.exp: lang=c: info args in frame #7
+FAIL: gdb.fortran/mixed-lang-stack.exp: lang=c++: interpreter-exec mi '-stack-list-arguments --no-frame-filters --all-values 7 7'
+FAIL: gdb.fortran/mixed-lang-stack.exp: lang=c: interpreter-exec mi '-stack-list-arguments --no-frame-filters --all-values 7 7'
+FAIL: gdb.fortran/mixed-lang-stack.exp: lang=fortran: bt -frame-arguments all
+FAIL: gdb.fortran/mixed-lang-stack.exp: lang=fortran: info args in frame #7
+FAIL: gdb.fortran/mixed-lang-stack.exp: lang=fortran: interpreter-exec mi '-stack-list-arguments --no-frame-filters --all-values 7 7'
+FAIL: gdb.fortran/module.exp: fully qualified name of DW_TAG_constant
+FAIL: gdb.fortran/module.exp: info variables -n
+FAIL: gdb.fortran/module.exp: print var_a
+FAIL: gdb.fortran/module.exp: print var_c
+FAIL: gdb.fortran/module.exp: print var_d
+FAIL: gdb.fortran/module.exp: print var_x value 31
+FAIL: gdb.fortran/module.exp: print var_y
+FAIL: gdb.fortran/nested-funcs-2.exp: src_prefix=0: nest_prefix=1: before start: print contains_keyword::hidden_variable
+FAIL: gdb.fortran/nested-funcs-2.exp: src_prefix=0: nest_prefix=1: before start: print contains_keyword::increment
+FAIL: gdb.fortran/nested-funcs-2.exp: src_prefix=0: nest_prefix=1: before start: print contains_keyword::increment_program_global
+FAIL: gdb.fortran/nested-funcs-2.exp: src_prefix=1: nest_prefix=1: before start: print contains_keyword::hidden_variable
+FAIL: gdb.fortran/nested-funcs-2.exp: src_prefix=1: nest_prefix=1: before start: print contains_keyword::increment
+FAIL: gdb.fortran/nested-funcs-2.exp: src_prefix=1: nest_prefix=1: before start: print contains_keyword::increment_program_global
+FAIL: gdb.fortran/nested-funcs.exp: continue to breakpoint: testnestedfuncs::sub_nested_inner
+FAIL: gdb.fortran/nested-funcs.exp: continue to breakpoint: testnestedfuncs::sub_nested_outer
+FAIL: gdb.fortran/pointers.exp: print *charap
+FAIL: gdb.fortran/pointers.exp: print charap
+FAIL: gdb.fortran/pointers.exp: print *charap, not associated
+FAIL: gdb.fortran/pointers.exp: print charap, not associated
+FAIL: gdb.fortran/pointers.exp: print *charp
+FAIL: gdb.fortran/pointers.exp: print charp
+FAIL: gdb.fortran/pointers.exp: print *charp, not associated
+FAIL: gdb.fortran/pointers.exp: print charp, not associated
+FAIL: gdb.fortran/pointers.exp: Print program counter
+FAIL: gdb.fortran/print_type.exp: pointers not associated: ptype charap
+FAIL: gdb.fortran/print_type.exp: pointers not associated: ptype charp
+FAIL: gdb.fortran/print_type.exp: ptype charap
+FAIL: gdb.fortran/print_type.exp: ptype charp
+FAIL: gdb.fortran/ptype-on-functions.exp: ptype fun_ptr
+FAIL: gdb.fortran/ptype-on-functions.exp: ptype say_array
+FAIL: gdb.fortran/ptype-on-functions.exp: ptype say_string
+FAIL: gdb.fortran/ptype-on-functions.exp: ptype some_module::get_number
+FAIL: gdb.fortran/ptype-on-functions.exp: ptype some_module::set_number
+FAIL: gdb.fortran/vla-array.exp: print string array
+FAIL: gdb.fortran/vla-array.exp: print string array type
+FAIL: gdb.fortran/vla-array.exp: print variable length string array type
+FAIL: gdb.fortran/vla-array.exp: print vla string array
