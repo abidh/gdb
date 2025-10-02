@@ -1,0 +1,43 @@
+# Copyright 2021-2025 Free Software Foundation, Inc.
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/> .
+
+require allow_fortran_tests
+
+standard_testfile ".f90"
+load_lib fortran.exp
+
+if {[prepare_for_testing ${testfile}.exp ${testfile} ${srcfile} \
+	 {debug additional_flags=-fopenmp f90}]} {
+    return -1
+}
+
+if ![fortran_runto_main] {
+    return -1
+}
+
+gdb_breakpoint [gdb_get_line_number "BP 1"]
+gdb_continue_to_breakpoint "Breakpoint 1"
+gdb_test "print var_x" "= 3"
+gdb_test "print var_y" "= 14"
+
+gdb_breakpoint [gdb_get_line_number "BP 2"]
+gdb_continue_to_breakpoint "Breakpoint 2"
+gdb_test "print var_x" "= 4" "var_x in add"
+gdb_test "print var_y" "= 15"  "var_y in add"
+gdb_test "print a" "= 3" "a in add"
+gdb_test "print b" "= 14"  "b in add"
+gdb_test "up"
+gdb_test "print var_x" "= 4" "var_x in frame 1"
+gdb_test "print var_y" "= 15"  "var_y in frame 1"

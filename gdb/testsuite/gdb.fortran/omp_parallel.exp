@@ -1,0 +1,42 @@
+# Copyright 2021-2025 Free Software Foundation, Inc.
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/> .
+
+require allow_fortran_tests
+
+standard_testfile ".f90"
+load_lib fortran.exp
+
+if {[prepare_for_testing ${testfile}.exp ${testfile} ${srcfile} \
+	 {debug additional_flags=-fopenmp f90}]} {
+    return -1
+}
+
+if ![fortran_runto_main] {
+    return -1
+}
+
+gdb_breakpoint [gdb_get_line_number "BP 1"]
+for { set j 1 } { $j < 10 } { incr j } {
+  gdb_continue_to_breakpoint "BP 1 continue $j"
+  gdb_test "print x" "= $j" "x at BP 1 iteration $j"
+  gdb_test "print arr($j)" "= $j" "BP 1 arr($j)"
+}
+
+gdb_breakpoint [gdb_get_line_number "BP 2"]
+for { set j 1 } { $j < 10 } { incr j } {
+  gdb_continue_to_breakpoint "BP 2 continue $j"
+  gdb_test "print x" "= $j" "x at BP 2 iteration $j"
+  gdb_test "print arr($j)" "= $j" "BP 2 arr($j)"
+}
